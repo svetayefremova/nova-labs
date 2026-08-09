@@ -2,20 +2,20 @@
 
 Nova reads every study and shows you a clear, organ-by-organ picture of your health — reviewed with clinical-grade care.
 
+> **Status: work in progress.** Beyond the product itself, this repo doubles as a sandbox for studying AI-agentic development — using AI agents to build features, review PRs, refactor code, and otherwise drive the day-to-day work on the app. The design and the initial codebase were built with [Claude Code](https://claude.com/claude-code) via vibe coding.
+
 ## About Nova
 
 Nova is a whole-body imaging companion app. It turns dense scan reports into something a patient can actually read and act on:
 
-- **Home** — a summary of your latest scan, organ/region breakdown by section (e.g. Parkinson's, Alzheimer's, Temporal Lobe, Lewy Body), severity counts, and history across past studies.
-- **Images** — browse a study's DICOM series and view individual scans.
+- **Home** — a summary of your latest scan, organ/region breakdown by section, severity counts, and history across past studies.
+- **Images** — browse a study's image series and view individual scans.
 - **Documents** — the underlying reports and files behind each study.
 - Built with [Expo](https://expo.dev) (Expo Router, React Native + Web), TypeScript, Tailwind (via `uniwind`), and `heroui-native`.
 
 ## Demo
 
-<!-- TODO: add a short screen recording or GIF of the app in action, e.g.:
-https://github.com/user-attachments/assets/<id>
--->
+[Watch the web demo](assets/demo/demo-web.mov)
 
 ## Get started
 

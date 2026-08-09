@@ -5,6 +5,7 @@
         "backgroundColor": "#5c85d9",
         "foregroundImage": "./assets/adaptive-icon.png"
       },
+      "package": "com.novalabs.nova",
       "predictiveBackGestureEnabled": false
     },
     "experiments": {
@@ -13,7 +14,11 @@
     },
     "icon": "./assets/icon.png",
     "ios": {
-      "icon": "./assets/icon.png"
+      "bundleIdentifier": "com.novalabs.nova",
+      "icon": "./assets/icon.png",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "name": "Nova",
     "orientation": "portrait",
