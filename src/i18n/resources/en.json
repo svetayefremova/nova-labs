@@ -1,0 +1,272 @@
+{
+  "app_name": "Nova",
+  "not_found": {
+    "title": "Whoops, you found a little bit of nothing!",
+    "subtitle": "Regardless of how you got here, let's get you back on track!",
+    "go_home": "Go to Home"
+  },
+  "splash": {
+    "tagline": "Clinical-grade care"
+  },
+  "create_account": {
+    "eyebrow": "Create account",
+    "title": "Create your account.",
+    "full_name": "Full name",
+    "full_name_placeholder": "Jane Doe",
+    "email": "Email",
+    "email_placeholder": "you@email.com",
+    "password": "Create password",
+    "password_placeholder": "Your password",
+    "password_hint": "At least 8 characters, one uppercase letter and one symbol.",
+    "terms_agree": "I agree to Nova's",
+    "terms": "Terms",
+    "terms_and": "&",
+    "privacy": "Privacy Policy.",
+    "cta": "Create account",
+    "have_account": "Already have an account?",
+    "sign_in": "Sign in",
+    "hud_label": "GET STARTED"
+  },
+  "confirm_email": {
+    "eyebrow": "Verify email",
+    "title": "Check your inbox.",
+    "subtitle": "We sent a 6-digit code to your email address. Enter it below to verify your account.",
+    "cta": "Verify",
+    "no_code": "Didn't receive a code?",
+    "resend": "Resend",
+    "hud_label": "EMAIL VERIFY"
+  },
+  "forgot_password": {
+    "eyebrow": "Reset password",
+    "title": "Forgot your password?",
+    "subtitle": "Enter the email on your account and we'll send a secure link to reset your password.",
+    "email": "Email",
+    "email_placeholder": "you@email.com",
+    "cta": "Send reset link",
+    "hint": "Links expire after 30 minutes and can only be used once.",
+    "remembered": "Remembered it?",
+    "back_to_sign_in": "Back to sign in",
+    "hud_label": "ACCOUNT RECOVERY"
+  },
+  "finding_detail": {
+    "description": "DESCRIPTION",
+    "quantitative": "QUANTITATIVE",
+    "recommendation": "Recommendation"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "subtitle": "3 new alerts",
+    "mark_all_read": "Mark all read",
+    "section_new": "New",
+    "section_earlier": "Earlier"
+  },
+  "sign_in": {
+    "eyebrow": "Sign in",
+    "title": "Welcome back.",
+    "email": "Email",
+    "password": "Password",
+    "email_placeholder": "you@email.com",
+    "password_placeholder": "Your password",
+    "cta": "Sign in",
+    "forgot": "Forgot password?",
+    "no_account": "Don't have an account?",
+    "register": "Create account"
+  },
+  "back": "Back",
+  "dicom": {
+    "error_loading": "Failed to load images",
+    "instances": "instances",
+    "loading": "Loading…",
+    "no_source": "No DICOM file available",
+    "frame": "{{current}} / {{total}}"
+  },
+  "document": {
+    "pdf": "PDF",
+    "empty_search_title": "No results found",
+    "empty_search_subtitle": "No documents match \"{{query}}\".",
+    "sections": "Document sections",
+    "uploaded": "Uploaded {{date}}",
+    "upload": {
+      "heading": "Upload files",
+      "subtitle": "New document",
+      "drop_title": "Drop files here or tap to browse",
+      "drop_hint": "PDF · JPG · PNG · DICOM · up to 25 MB each",
+      "action": "Upload",
+      "files_selected_one": "{{count}} file selected",
+      "files_selected_other": "{{count}} files selected",
+      "clear_all": "Clear all",
+      "type_report": "Report",
+      "type_imaging": "Imaging",
+      "type_referral": "Referral",
+      "type_lab": "Lab",
+      "type_other": "Other"
+    }
+  },
+  "header": {
+    "avatar_label": "User avatar, {{initials}}",
+    "documents": {
+      "title": "Documents",
+      "search_placeholder": "Search documents...",
+      "files_count": "{{count}} files · {{name}}"
+    },
+    "home": {
+      "subtitle": "Reviewed by Dr. R. Mehta · Neuroradiology",
+      "title": "Findings overview"
+    },
+    "images": {
+      "title": "Images"
+    }
+  },
+  "image": {
+    "caption": "{{date}} · {{seriesCount}} series · {{sliceCount}} slices"
+  },
+  "metadata": {
+    "date": "Date",
+    "description": "Description",
+    "dimensions": "Dimensions",
+    "modality": "Modality",
+    "region": "Region",
+    "series": "Series",
+    "series_value": "{{count}} series",
+    "slices": "Slices",
+    "slices_value": "{{count}} images"
+  },
+  "common": {
+    "view_all": "View all",
+    "all": "All",
+    "cancel": "Cancel",
+    "save": "Save changes"
+  },
+  "section": {
+    "region_analysis": "Region analysis",
+    "regions": "Regions",
+    "organs": "Organs"
+  },
+  "onco_rads": {
+    "label": "ONCO-RADS",
+    "progression": "ONCO-RADS · 18-month progression",
+    "recommendation": "Recommendation",
+    "1": "No findings",
+    "2": "Probably benign",
+    "3": "Indeterminate",
+    "4": "Probably malignant",
+    "5": "Malignant"
+  },
+  "findings": {
+    "empty_title": "No findings",
+    "empty_subtitle": "No {{severity}} findings for this section."
+  },
+  "scan": {
+    "assessments": "Assessments · {{count}}",
+    "scans_header": "Scans · {{count}}",
+    "disclaimer": "This summary is an AI-assisted read of your radiologist's report. Always consult your physician for clinical decisions.",
+    "documents_header": "Documents",
+    "findings_header": "Findings",
+    "findings_one": "{{count}} finding",
+    "findings_other": "{{count}} findings",
+    "images_header": "Images",
+    "metadata": "Metadata",
+    "overall_status": "Overall status",
+    "whole_body_scan": "Whole body",
+    "tested": "Tested",
+    "critical_findings_one": "{{count}} critical finding",
+    "critical_findings_other": "{{count}} critical findings",
+    "benign_findings_one": "{{count}} benign finding",
+    "benign_findings_other": "{{count}} benign findings",
+    "patient": "Patient · {{mrn}}",
+    "patient_age": "Age {{age}}",
+    "region": "Region · {{index}}",
+    "series_header": "Series · {{count}}",
+    "severity_summary": "{{critical}} critical, {{benign}} benign, {{normal}} normal",
+    "status": {
+      "benign": "Mostly normal",
+      "critical": "Attention needed",
+      "normal": "All clear"
+    },
+    "study_label": "Study · {{code}}",
+    "studies_label": "Studies",
+    "risk_level": "Risk level",
+    "risk_score_label": "Combined risk score",
+    "risk_meter_min": "0%",
+    "risk_meter_max": "100%",
+    "risk_tier": {
+      "high": "High risk",
+      "elevated": "Elevated risk",
+      "moderate": "Moderate risk",
+      "low": "Low risk",
+      "minimal": "Minimal risk"
+    }
+  },
+  "profile": {
+    "patient_overview": "Profile overview",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "dob": "Date of birth",
+    "phone": "Phone number",
+    "email": "Email",
+    "address_line1": "Address line 1",
+    "address_line2": "Address line 2",
+    "city": "City",
+    "state": "State / Province",
+    "postal_code": "Postal code",
+    "country": "Country",
+    "health_overview": "Overview",
+    "stat_danger_zone": "Highest Risk",
+    "stat_reports": "Scans",
+    "stat_critical": "Critical",
+    "stat_since": "Since",
+    "flagged_today": "flagged today",
+    "review_findings": "Review findings",
+    "review_images": "Images",
+    "recommendation_title": "Recommendation",
+    "recommendation_next_step": "Next step",
+    "recommendation_disclaimer": "Clinical guidance · confirm with attending physician",
+    "title": "Update profile",
+    "section_personal": "Personal",
+    "section_contact": "Contact",
+    "privacy_note": "Your information is encrypted and shared only with your care team."
+  },
+  "onboarding": {
+    "skip": "Skip",
+    "back": "Back",
+    "next": "Next",
+    "create_account": "Create account",
+    "step1_eyebrow": "Step 01 · Imaging",
+    "step1_title": "Every scan,\nin one place.",
+    "step1_body": "CT, MRI and X-ray studies are gathered automatically and sorted organ by organ — no more chasing files between clinics.",
+    "step1_label": "CHEST CT",
+    "step2_eyebrow": "Step 02 · Findings",
+    "step2_title": "Findings without\nthe jargon.",
+    "step2_body": "Each finding is graded and explained in plain language, so you know what matters and what to keep an eye on.",
+    "step2_label": "BRAIN MRI",
+    "step3_eyebrow": "Step 03 · Follow-up",
+    "step3_title": "A specialist,\none tap away.",
+    "step3_body": "Flag anything to a clinician and book a review in a tap — your results travel with you to every appointment.",
+    "step3_label": "CARE TEAM"
+  },
+  "welcome": {
+    "eyebrow": "Whole-body imaging",
+    "headline": "Your scans,\nfinally clear.",
+    "subtitle": "Nova reads every study and shows you a clear, organ-by-organ picture of your health — reviewed with clinical-grade care.",
+    "cta": "Get started",
+    "login": "I already have an account",
+    "hud_analyzing": "NOVA · ANALYZING",
+    "hud_whole_body": "WHOLE BODY",
+    "hud_finding": "FINDING",
+    "footer": "AI Medical Imaging · HIPAA compliant · End-to-end encrypted"
+  },
+  "severity": {
+    "benign": {
+      "abbr": "beni",
+      "label": "Benign"
+    },
+    "critical": {
+      "abbr": "crit",
+      "label": "Critical"
+    },
+    "normal": {
+      "abbr": "norm",
+      "label": "Normal"
+    }
+  }
+}

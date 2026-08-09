@@ -1,0 +1,6 @@
+{
+  "go_back": "Go back",
+  "logo_label": "Nova, go to home",
+  "series_label": "{{description}}, {{modality}}",
+  "section_label": "{{name}}"
+}

@@ -1,9 +1,136 @@
+@import 'tailwindcss';
+@import 'uniwind';
+
+@import 'heroui-native/styles';
+
+/* Path to the heroui-native lib inside node_modules from the root of your project */
+@source './node_modules/heroui-native/lib';
+
+@theme inline {
+  /* Brand */
+  --color-primary: #5c85d9;
+  --color-primary-light: #9db3e7;
+  --color-primary-foreground: #ffffff;
+
+  --color-accent-yellow: #feffa6;
+  --color-accent-red: #ff3c22;
+  --color-accent-red-dark: #ed3032;
+
+  /* Severity — hex values aligned with JS SEVERITY constants */
+  --color-severity-critical: #ed3032;
+  --color-severity-benign: #e8b84b;
+  --color-severity-low: #a2b974;
+  --color-severity-normal: #5cba9e;
+
+  /* Foreground / text */
+  --color-foreground: #5c85d9;
+  --color-foreground-muted: rgba(92, 133, 217, 0.55);
+  --color-icon-muted: rgba(92, 133, 217, 0.5);
+  --color-text: #1c1c1c;
+  --color-muted: rgba(28, 28, 28, 0.75);
+  --color-reverse: #fffffe;
+  --color-reverse-muted: rgba(255, 255, 254, 0.75);
+
+  /* Backgrounds */
+  --color-background: #ebf0fc;
+  --color-background-secondary: #ccd4e6;
+  --color-surface: #fffffe;
+  --color-neutral-gray: #cfd1d2;
+  --color-neutral-gray-subtle: rgba(207, 209, 210, 0.24);
+
+  /* Surfaces */
+  --color-surface-subtle: rgba(0, 0, 0, 0.04);
+  --color-surface-border: rgba(0, 0, 0, 0.06);
+
+  /* Risk meter track */
+  --color-track-bg: rgba(0, 0, 0, 0.05);
+  --color-track-border: rgba(0, 0, 0, 0.08);
+  --color-track-tick: rgba(0, 0, 0, 0.3);
+
+  /* Tabs */
+  --color-tab-active: #5c85d9;
+  --color-tab-muted: rgba(0, 0, 0, 0.38);
+  --color-tab-glow: #9db3e7;
+
+  /* Modality colors for DICOM series badges */
+  --color-modality-mri: #9db3e7;
+  --color-modality-ct: #3ab9aa;
+  --color-modality-pet: #c4893c;
+  --color-modality-xr: #8b8fa8;
+
+  /* DICOM viewer */
+  --color-viewer-bg: #0e1117;
+  --color-thumbnail-inactive: #f5f5f5;
+
+  /* Welcome / Onboarding screen */
+  --color-onboarding-gradient-start: #6e8be8;
+  --color-onboarding-gradient-end: #4a68d2;
+  --color-glass-fill: rgba(86, 120, 210, 0.34);
+  --color-glass-border: rgba(255, 255, 255, 0.22);
+  --color-grid-line: rgba(255, 255, 255, 0.1);
+
+  --font-sans: Nunito_400Regular;
+  --font-sans-medium: Nunito_500Medium;
+  --font-sans-semibold: Nunito_600SemiBold;
+  --font-sans-bold: Nunito_700Bold;
+  --font-sans-extrabold: Nunito_800ExtraBold;
+}
+
+/*
+ * Remaps heroui-native's own raw theme tokens (used internally by its
+ * component CSS, e.g. button__root--variant-primary { background-color: var(--color-accent) })
+ * to this app's brand palette. This block is deliberately NOT inside any
+ * @layer, so per the CSS Cascade Layers spec it beats heroui-native's
+ * @layer theme tokens regardless of import order — no !important needed
+ * for base color mismatches.
+ */
 :root {
-  --font-display:
-    Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol, Noto Color Emoji;
-  --font-mono:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
-  --font-serif: Georgia, 'Times New Roman', serif;
+  --field-border-width: 1px;
+  --field-border: rgba(0, 0, 0, 0.8);
+
+  --foreground: var(--color-text);
+  --muted: var(--color-muted);
+
+  --accent: var(--color-primary);
+  --accent-foreground: var(--color-primary-foreground);
+
+  --default: var(--color-background);
+  --default-foreground: var(--color-text);
+
+  --danger: var(--color-severity-critical);
+  --danger-foreground: var(--color-reverse);
+
+  /*
+   * heroui-native derives these via color-mix(), e.g.
+   *   --color-accent-hover: color-mix(in oklab, var(--accent) 90%, var(--accent-foreground) 10%)
+   * heroui-native's own colorKit.RGB() can't parse a "color-mix(...)" string
+   * (it only understands hex/rgb/hsl/hsv/hwb), so anything reading these
+   * via useThemeColor (e.g. Button's press-feedback highlight color) fails
+   * and silently falls back to black. Override with plain colors instead.
+   */
+  --color-accent-hover: var(--color-primary-light);
+  --color-default-hover: var(--color-background-secondary);
+  --color-danger-hover: var(--color-accent-red);
+  --color-danger-soft-hover: rgba(237, 48, 50, 0.3);
+}
+
+#otp-wrapper input {
+  position: absolute !important;
+  inset: 0 !important;
+  opacity: 0 !important;
+}
+
+@keyframes autofill-bg-fix {
+  to {
+    background-color: transparent;
+    color: inherit;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  animation: autofill-bg-fix 0.001s forwards !important;
+  -webkit-text-fill-color: var(--color-text) !important;
 }

@@ -1,0 +1,18 @@
+name: Create Preview Builds
+
+jobs:
+  android_device_development_build:
+    environment: preview
+    name: Build Android Device (preview)
+    params:
+      platform: android
+      profile: preview
+    type: build
+
+  ios_device_development_build:
+    environment: preview
+    name: Build iOS Device (preview)
+    params:
+      platform: ios
+      profile: preview
+    type: build
