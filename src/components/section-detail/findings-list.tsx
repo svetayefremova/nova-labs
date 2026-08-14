@@ -1,14 +1,14 @@
-import { useRouter } from "expo-router";
-import { useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { Image, View } from "react-native";
+import { useRouter } from 'expo-router';
+import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Image, View } from 'react-native';
 
-import { Select, Text } from "@/src/components/ui";
-import { type Severity } from "@/src/constants/severity";
-import type { Finding } from "@/src/types/domain";
+import notFoundIllustration from '@/assets/images/not_found.png';
+import { Select, Text } from '@/src/components/ui';
+import { type Severity } from '@/src/constants/severity';
+import type { Finding } from '@/src/types/domain';
 
-import notFoundIllustration from "@/assets/images/not_found.png";
-import { FindingRow } from "./finding-row";
+import { FindingRow } from './finding-row';
 
 export function FindingsList({
   findings,
@@ -19,21 +19,21 @@ export function FindingsList({
 }) {
   const { t } = useTranslation();
   const router = useRouter();
-  const [severityFilter, setSeverityFilter] = useState<Severity | "all">("all");
+  const [severityFilter, setSeverityFilter] = useState<Severity | 'all'>('all');
 
   const filterOptions = useMemo(
     () => [
-      { value: "all", label: t("common.all") },
-      { value: "critical", label: t("severity.critical.label") },
-      { value: "benign", label: t("severity.benign.label") },
-      { value: "normal", label: t("severity.normal.label") },
+      { value: 'all', label: t('common.all') },
+      { value: 'critical', label: t('severity.critical.label') },
+      { value: 'benign', label: t('severity.benign.label') },
+      { value: 'normal', label: t('severity.normal.label') },
     ],
     [t],
   );
 
   const filtered = useMemo(
     () =>
-      severityFilter === "all"
+      severityFilter === 'all'
         ? findings
         : findings.filter((f) => f.severity === severityFilter),
     [findings, severityFilter],
@@ -43,13 +43,13 @@ export function FindingsList({
     <>
       <View className="px-4 mb-3 flex-row items-center justify-between">
         <Text variant="subtitle" color="muted">
-          {t("scan.findings_header")}
+          {t('scan.findings_header')}
         </Text>
         <Select
           options={filterOptions}
           value={severityFilter}
-          onValueChange={(v) => setSeverityFilter(v as Severity | "all")}
-          placeholder={t("common.all")}
+          onValueChange={(v) => setSeverityFilter(v as Severity | 'all')}
+          placeholder={t('common.all')}
         />
       </View>
       {filtered.length === 0 ? (
@@ -57,19 +57,19 @@ export function FindingsList({
           <View className="w-full h-[200px] md:h-[400px]">
             <Image
               source={notFoundIllustration}
-              style={{ width: "100%", height: "100%" }}
+              style={{ width: '100%', height: '100%' }}
               resizeMode="contain"
               accessible={false}
             />
           </View>
           <Text variant="subtitle" className="font-sans-bold">
-            {t("findings.empty_title")}
+            {t('findings.empty_title')}
           </Text>
           <Text variant="body" color="muted" className="text-center">
-            {t("findings.empty_subtitle", {
+            {t('findings.empty_subtitle', {
               severity:
-                severityFilter === "all"
-                  ? ""
+                severityFilter === 'all'
+                  ? ''
                   : t(`severity.${severityFilter}.label`).toLowerCase(),
             })}
           </Text>
@@ -82,7 +82,7 @@ export function FindingsList({
                 finding={finding}
                 onPress={() =>
                   router.push({
-                    pathname: "/(tabs)/(home)/finding-detail",
+                    pathname: '/(tabs)/(home)/finding-detail',
                     params: { findingId: finding.id, sectionId },
                   })
                 }

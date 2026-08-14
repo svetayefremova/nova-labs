@@ -1,6 +1,6 @@
 import * as DocumentPicker from 'expo-document-picker';
 import { BottomSheet } from 'heroui-native';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, Platform, Pressable, View } from 'react-native';
 import { useCSSVariable } from 'uniwind';
@@ -21,9 +21,13 @@ export function UploadDocumentSheet({ isOpen, onClose, onUpload }: Props) {
   const [selectedType, setSelectedType] = useState<DocType>('report');
   const [files, setFiles] = useState<PickedFile[]>([]);
   const [sheetOpen, setSheetOpen] = useState(isOpen);
-  useEffect(() => {
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
+
+  if (isOpen !== prevIsOpen) {
+    setPrevIsOpen(isOpen);
     setSheetOpen(isOpen);
-  }, [isOpen]);
+  }
+
   const textColor = String(useCSSVariable('--color-text'));
 
   async function handlePickFiles() {
@@ -32,7 +36,13 @@ export function UploadDocumentSheet({ isOpen, onClose, onUpload }: Props) {
       await new Promise<void>((r) => setTimeout(r, 400));
     }
     const result = await DocumentPicker.getDocumentAsync({
-      type: ['application/pdf', 'image/jpeg', 'image/png', 'application/dicom', '*/*'],
+      type: [
+        'application/pdf',
+        'image/jpeg',
+        'image/png',
+        'application/dicom',
+        '*/*',
+      ],
       multiple: true,
       copyToCacheDirectory: false,
     });
@@ -149,7 +159,9 @@ export function UploadDocumentSheet({ isOpen, onClose, onUpload }: Props) {
           }}
           className="flex-1 bg-white border-primary"
         >
-          <Button.Label className="text-primary">{t('common.cancel')}</Button.Label>
+          <Button.Label className="text-primary">
+            {t('common.cancel')}
+          </Button.Label>
         </Button>
         <Button
           variant="primary"
@@ -161,7 +173,9 @@ export function UploadDocumentSheet({ isOpen, onClose, onUpload }: Props) {
           isDisabled={files.length === 0}
           className="flex-1 bg-primary"
         >
-          <Button.Label className="text-white">{t('document.upload.action')}</Button.Label>
+          <Button.Label className="text-white">
+            {t('document.upload.action')}
+          </Button.Label>
         </Button>
       </View>
     </View>
@@ -169,8 +183,14 @@ export function UploadDocumentSheet({ isOpen, onClose, onUpload }: Props) {
 
   if (Platform.OS === 'web') {
     if (!isOpen) return null;
+
     return (
-      <Modal visible={isOpen} transparent animationType="fade" onRequestClose={onClose}>
+      <Modal
+        visible={isOpen}
+        transparent
+        animationType="fade"
+        onRequestClose={onClose}
+      >
         <View
           style={{
             flex: 1,
@@ -180,7 +200,13 @@ export function UploadDocumentSheet({ isOpen, onClose, onUpload }: Props) {
           }}
         >
           <Pressable
-            style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+            }}
             onPress={onClose}
           />
           <View
@@ -189,7 +215,10 @@ export function UploadDocumentSheet({ isOpen, onClose, onUpload }: Props) {
           >
             <View className="flex-row items-center justify-between mb-1">
               <View />
-              <Pressable onPress={onClose} className="p-1 rounded-full bg-surface-subtle">
+              <Pressable
+                onPress={onClose}
+                className="p-1 rounded-full bg-surface-subtle"
+              >
                 <Icon name="x" size={18} color={textColor} />
               </Pressable>
             </View>
@@ -214,7 +243,7 @@ export function UploadDocumentSheet({ isOpen, onClose, onUpload }: Props) {
       <BottomSheet.Portal>
         <BottomSheet.Overlay />
         <BottomSheet.Content>
-          <View className="flex-1 gap-5">{content}</View>
+          <View className="flex-1 gap-5 native:p-6">{content}</View>
         </BottomSheet.Content>
       </BottomSheet.Portal>
     </BottomSheet>

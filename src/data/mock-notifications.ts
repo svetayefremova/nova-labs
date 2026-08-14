@@ -1,10 +1,5 @@
 export type NotificationType =
-  | 'critical'
-  | 'study'
-  | 'document'
-  | 'care-team'
-  | 'appointment'
-  | 'security';
+  'critical' | 'study' | 'document' | 'care-team' | 'appointment' | 'security';
 
 export interface Notification {
   id: string;

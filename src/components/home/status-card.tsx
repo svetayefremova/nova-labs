@@ -6,12 +6,12 @@ import { useCSSVariable } from 'uniwind';
 import { Card, Icon, Text } from '@/src/components/ui';
 import { highestSeverity, type Severity } from '@/src/constants/severity';
 import { shadows } from '@/src/constants/theme';
+import { buildTicks, ORDER } from '@/src/helpers/build-ticks';
 import { seededRand } from '@/src/helpers/seeded-rand';
 import type { ScanType, SeverityCounts } from '@/src/types/domain';
 
 type Props = { totals: SeverityCounts; region: string; scanType: ScanType };
 
-const ORDER: Severity[] = ['critical', 'benign', 'normal'];
 const ICON_SIZE = 40;
 const labTotal_BY_TYPE: Record<ScanType, number> = { brain: 40, 'whole-body': 60 };
 const CX = 50;
@@ -37,28 +37,14 @@ export function StatusCard({ totals, region, scanType }: Props) {
     normal: normalColor,
   };
 
-  const rand = seededRand(7);
-  const ticks: { color: string; lengthPct: number }[] = [];
-
-  const makeTick = (color: string) => ({
-    color,
-    lengthPct: 1,
+  const ticks = buildTicks({
+    totals,
+    colorMap,
+    grayColor,
+    labTotal,
+    tested,
+    rand: seededRand(7),
   });
-
-  ORDER.forEach((key) => {
-    for (let k = 0; k < totals[key]; k++) {
-      ticks.push(makeTick(colorMap[key]));
-    }
-  });
-
-  for (let i = ticks.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
-    [ticks[i], ticks[j]] = [ticks[j], ticks[i]];
-  }
-
-  for (let k = 0; k < labTotal - tested; k++) {
-    ticks.push(makeTick(grayColor));
-  }
 
   return (
     <View className="flex-row gap-3">

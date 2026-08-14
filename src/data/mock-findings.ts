@@ -43,7 +43,10 @@ const DESCRIPTIONS: Record<Severity, string[]> = {
   ],
 };
 
-export function generateFindings(sectionId: string, counts: SeverityCounts): Finding[] {
+export function generateFindings(
+  sectionId: string,
+  counts: SeverityCounts,
+): Finding[] {
   const findings: Finding[] = [];
 
   (['critical', 'benign', 'normal'] as Severity[]).forEach((severity) => {

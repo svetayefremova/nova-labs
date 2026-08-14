@@ -45,10 +45,16 @@ export default function SignInScreen() {
             <Button
               variant="ghost"
               isIconOnly
-              accessibilityLabel={showPassword ? 'Hide password' : 'Show password'}
+              accessibilityLabel={
+                showPassword ? 'Hide password' : 'Show password'
+              }
               onPress={() => setShowPassword((v) => !v)}
             >
-              <Icon name={showPassword ? 'eye-off' : 'eye'} size={18} color={mutedColor} />
+              <Icon
+                name={showPassword ? 'eye-off' : 'eye'}
+                size={18}
+                color={mutedColor}
+              />
             </Button>
           }
         />
@@ -77,7 +83,10 @@ export default function SignInScreen() {
         <Text variant="body" color="muted" className="text-[14px]">
           {t('sign_in.no_account')}
         </Text>
-        <Button variant="ghost" onPress={() => router.push('/(auth)/create-account')}>
+        <Button
+          variant="ghost"
+          onPress={() => router.push('/(auth)/create-account')}
+        >
           <Button.Label className="text-primary normal-case font-sans-bold text-[14px]">
             {t('sign_in.register')}
           </Button.Label>

@@ -1,5 +1,9 @@
 import type { Severity } from '@/src/constants/severity';
-import type { Finding, QuantitativeRow, RegionReading } from '@/src/types/domain';
+import type {
+  Finding,
+  QuantitativeRow,
+  RegionReading,
+} from '@/src/types/domain';
 
 type FindingTemplate = {
   location: string;
@@ -27,7 +31,8 @@ const FINDING_LIBRARY: Record<string, CategoryLibrary> = {
         { label: 'Iron · SWI', value: '98 μg/g' },
         { label: 'Prior study', value: 'New finding' },
       ],
-      recommendation: 'Neurology referral and DAT-SPECT correlation recommended.',
+      recommendation:
+        'Neurology referral and DAT-SPECT correlation recommended.',
       keyImages: [
         require('@/assets/images/MRI_brain.jpg'),
         require('@/assets/images/MRI_brain.jpg'),
@@ -124,8 +129,10 @@ const CATEGORIES = Object.keys(FINDING_LIBRARY);
 
 function categoryForSection(sectionId: string, fallbackIndex: number): string {
   const id = sectionId.toLowerCase();
-  if (/parkinson|basal|nigra|putamen|caudate|striatum/.test(id)) return 'parkinson';
-  if (/alzheimer|hippocampus|temporal|memory|entorhinal/.test(id)) return 'alzheimer';
+  if (/parkinson|basal|nigra|putamen|caudate|striatum/.test(id))
+    return 'parkinson';
+  if (/alzheimer|hippocampus|temporal|memory|entorhinal/.test(id))
+    return 'alzheimer';
   if (/temporal|auditory|language|gyrus/.test(id)) return 'temporal';
   if (/lewy|coeruleus|brainstem|cingulate/.test(id)) return 'lewy';
   return CATEGORIES[fallbackIndex % CATEGORIES.length];
@@ -161,7 +168,12 @@ export function findingsForSection(
   return findings;
 }
 
-type RegionTemplate = { name: string; label: string; pct: number; severity: Severity };
+type RegionTemplate = {
+  name: string;
+  label: string;
+  pct: number;
+  severity: Severity;
+};
 
 const REGION_LIBRARY: Record<string, RegionTemplate[]> = {
   parkinson: [
@@ -177,18 +189,41 @@ const REGION_LIBRARY: Record<string, RegionTemplate[]> = {
     { name: 'Post. cingulate', label: '+0.3%', pct: 14, severity: 'normal' },
   ],
   temporal: [
-    { name: 'Sup. temporal gyrus', label: '42 mL', pct: 68, severity: 'critical' },
+    {
+      name: 'Sup. temporal gyrus',
+      label: '42 mL',
+      pct: 68,
+      severity: 'critical',
+    },
     { name: 'Amygdala', label: '51 mL', pct: 36, severity: 'benign' },
-    { name: 'Parahippocampal gyrus', label: '62 mL', pct: 20, severity: 'normal' },
+    {
+      name: 'Parahippocampal gyrus',
+      label: '62 mL',
+      pct: 20,
+      severity: 'normal',
+    },
   ],
   lewy: [
     { name: 'Locus coeruleus', label: '−4.9%', pct: 74, severity: 'critical' },
-    { name: 'Dorsal motor nucleus', label: '−1.8%', pct: 40, severity: 'benign' },
-    { name: 'Ant. cingulate cortex', label: '+0.2%', pct: 15, severity: 'normal' },
+    {
+      name: 'Dorsal motor nucleus',
+      label: '−1.8%',
+      pct: 40,
+      severity: 'benign',
+    },
+    {
+      name: 'Ant. cingulate cortex',
+      label: '+0.2%',
+      pct: 15,
+      severity: 'normal',
+    },
   ],
 };
 
-export function regionsForSection(sectionId: string, sectionIndex: number): RegionReading[] {
+export function regionsForSection(
+  sectionId: string,
+  sectionIndex: number,
+): RegionReading[] {
   const category = categoryForSection(sectionId, sectionIndex);
   return REGION_LIBRARY[category] ?? [];
 }

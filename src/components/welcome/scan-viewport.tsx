@@ -2,17 +2,31 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useId } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Animated, View } from 'react-native';
-import Svg, { Defs, G, Line, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
+import Svg, {
+  Defs,
+  G,
+  Line,
+  Path,
+  RadialGradient,
+  Rect,
+  Stop,
+} from 'react-native-svg';
 import { useCSSVariable } from 'uniwind';
 
 import { Icon, type IconName, Text } from '@/src/components/ui';
-import { useScanlineAnimation } from '@/src/helpers/use-scanline-animation';
+import { useScanlineAnimation } from '@/src/hooks/use-scanline-animation';
 
 const DEFAULT_SIZE = 248;
 const VIEWBOX = 248;
 const GRID = 31;
 
-const svgFill = { position: 'absolute' as const, top: 0, left: 0, right: 0, bottom: 0 };
+const svgFill = {
+  position: 'absolute' as const,
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+};
 
 const gridLines = (() => {
   const lines = [];
@@ -64,9 +78,20 @@ export function ScanViewport({
         backgroundColor: glassFill,
       }}
     >
-      <Svg style={svgFill} width={size} height={size} viewBox={`0 0 ${VIEWBOX} ${VIEWBOX}`}>
+      <Svg
+        style={svgFill}
+        width={size}
+        height={size}
+        viewBox={`0 0 ${VIEWBOX} ${VIEWBOX}`}
+      >
         <Defs>
-          <RadialGradient id={gradientId} cx="50%" cy="50%" r="75%" gradientUnits="userSpaceOnUse">
+          <RadialGradient
+            id={gradientId}
+            cx="50%"
+            cy="50%"
+            r="75%"
+            gradientUnits="userSpaceOnUse"
+          >
             <Stop offset="30%" stopColor="white" stopOpacity="0" />
             <Stop offset="100%" stopColor="white" stopOpacity="0.15" />
           </RadialGradient>
@@ -83,14 +108,16 @@ export function ScanViewport({
         </G>
       </Svg>
 
-      <View className="absolute inset-0 items-center justify-center" pointerEvents="none">
+      <View
+        className="absolute inset-0 items-center justify-center"
+        style={{ pointerEvents: 'none' }}
+      >
         <Icon name={icon} size={iconSize} color={yellow} />
       </View>
 
       <Animated.View
         className="absolute left-4 right-4 top-[46%]"
-        style={{ transform: [{ translateY }] }}
-        pointerEvents="none"
+        style={{ transform: [{ translateY }], pointerEvents: 'none' }}
       >
         <LinearGradient
           colors={['rgba(237,239,126,0)', yellow, 'rgba(237,239,126,0)']}
@@ -108,8 +135,13 @@ export function ScanViewport({
 
       {showHud && label && (
         <View className="absolute left-4 bottom-[14px] flex-row items-center gap-[7px]">
-          <View className="w-[7px] h-[7px] rounded-full" style={{ backgroundColor: yellow }} />
-          <Text className="font-sans-bold text-[11px] text-white/90">{label}</Text>
+          <View
+            className="w-[7px] h-[7px] rounded-full"
+            style={{ backgroundColor: yellow }}
+          />
+          <Text className="font-sans-bold text-[11px] text-white/90">
+            {label}
+          </Text>
         </View>
       )}
     </View>

@@ -1,11 +1,11 @@
-import { useEffect, useRef } from 'react';
-import { Animated, Easing } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Animated, Easing, Platform } from 'react-native';
 
 export function useScanlineAnimation(
   size: number,
   animate: boolean,
 ): Animated.AnimatedInterpolation<number> {
-  const progress = useRef(new Animated.Value(0)).current;
+  const [progress] = useState(() => new Animated.Value(0));
 
   useEffect(() => {
     if (!animate) return;
@@ -15,13 +15,13 @@ export function useScanlineAnimation(
           toValue: 1,
           duration: 1700,
           easing: Easing.inOut(Easing.ease),
-          useNativeDriver: true,
+          useNativeDriver: Platform.OS !== 'web',
         }),
         Animated.timing(progress, {
           toValue: 0,
           duration: 1700,
           easing: Easing.inOut(Easing.ease),
-          useNativeDriver: true,
+          useNativeDriver: Platform.OS !== 'web',
         }),
       ]),
     );

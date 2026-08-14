@@ -46,6 +46,7 @@ export function UserProfileProvider({ children }: { children: ReactNode }) {
 
 export function useUserProfile() {
   const ctx = useContext(UserProfileContext);
-  if (!ctx) throw new Error('useUserProfile must be used within UserProfileProvider');
+  if (!ctx)
+    throw new Error('useUserProfile must be used within UserProfileProvider');
   return ctx;
 }

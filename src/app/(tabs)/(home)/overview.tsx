@@ -187,7 +187,10 @@ export default function OverviewScreen() {
                 />
               </View>
 
-              <View className="flex-1 items-start" pointerEvents="none">
+              <View
+                className="flex-1 items-start"
+                style={{ pointerEvents: 'none' }}
+              >
                 <Image
                   source={overviewIllustration}
                   style={{

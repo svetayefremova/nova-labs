@@ -11,7 +11,13 @@ type Props =
   | (BaseProps & { onPress: () => void; accessibilityLabel: string })
   | (BaseProps & { onPress?: never; accessibilityLabel?: string });
 
-export function Card({ children, onPress, accessibilityLabel, className, style }: Props) {
+export function Card({
+  children,
+  onPress,
+  accessibilityLabel,
+  className,
+  style,
+}: Props) {
   const outerClass = cn('rounded-[24px] bg-white', className);
 
   const body = (
@@ -31,7 +37,10 @@ export function Card({ children, onPress, accessibilityLabel, className, style }
         )}
         accessibilityRole="button"
         accessibilityLabel={accessibilityLabel}
-        style={({ pressed }) => [style, pressed ? { transform: [{ scale: 0.985 }] } : undefined]}
+        style={({ pressed }) => [
+          style,
+          pressed ? { transform: [{ scale: 0.985 }] } : undefined,
+        ]}
       >
         {body}
       </Pressable>

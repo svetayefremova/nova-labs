@@ -22,7 +22,11 @@ export function SegmentedProgress({ step, count = 3 }: SegmentedProgressProps) {
             {active && (
               <View
                 className="absolute right-0 w-[16px] h-[16px] rounded-full border-[3px]"
-                style={{ top: -5.5, backgroundColor: '#EDEF7E', borderColor: white }}
+                style={{
+                  top: -5.5,
+                  backgroundColor: '#EDEF7E',
+                  borderColor: white,
+                }}
               />
             )}
           </View>

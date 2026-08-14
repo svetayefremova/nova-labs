@@ -101,8 +101,14 @@ export function SummaryCard({
       <LinearGradient
         colors={['rgba(92,133,217,0)', 'rgba(92,133,217,0)', primaryColor]}
         locations={[0, 0.75, 1]}
-        style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
-        pointerEvents="none"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          pointerEvents: 'none',
+        }}
       />
 
       <View className="px-4 pt-4 pb-10">

@@ -9,9 +9,21 @@ import { GradientShell } from './gradient-shell';
 import { ScanViewport } from './scan-viewport';
 
 const FEATURES: { icon: IconName; titleKey: string; bodyKey: string }[] = [
-  { icon: 'lungs', titleKey: 'onboarding.step1_title', bodyKey: 'onboarding.step1_body' },
-  { icon: 'brain', titleKey: 'onboarding.step2_title', bodyKey: 'onboarding.step2_body' },
-  { icon: 'stethoscope', titleKey: 'onboarding.step3_title', bodyKey: 'onboarding.step3_body' },
+  {
+    icon: 'lungs',
+    titleKey: 'onboarding.step1_title',
+    bodyKey: 'onboarding.step1_body',
+  },
+  {
+    icon: 'brain',
+    titleKey: 'onboarding.step2_title',
+    bodyKey: 'onboarding.step2_body',
+  },
+  {
+    icon: 'stethoscope',
+    titleKey: 'onboarding.step3_title',
+    bodyKey: 'onboarding.step3_body',
+  },
 ];
 
 function FeatureRow({ icon, titleKey, bodyKey }: (typeof FEATURES)[number]) {
@@ -63,10 +75,16 @@ export function WelcomeDesktop() {
               </View>
 
               <View className="gap-4">
-                <Text variant="overline" className="text-white/60 font-sans-bold">
+                <Text
+                  variant="overline"
+                  className="text-white/60 font-sans-bold"
+                >
                   {t('splash.tagline')}
                 </Text>
-                <Text variant="display" className="text-reverse text-[42px] leading-[48px]">
+                <Text
+                  variant="display"
+                  className="text-reverse text-[42px] leading-[48px]"
+                >
                   {t('welcome.headline')}
                 </Text>
                 <Text variant="body" className="text-reverse-muted leading-6">
@@ -81,7 +99,10 @@ export function WelcomeDesktop() {
         </View>
 
         {/* Right — white panel */}
-        <View className="bg-surface justify-center px-14 py-12 gap-8" style={{ width: '50%' }}>
+        <View
+          className="bg-surface justify-center px-14 py-12 gap-8"
+          style={{ width: '50%' }}
+        >
           <View className="gap-6">
             <Text variant="overline" color="primary" className="font-sans-bold">
               {t('welcome.eyebrow')}
@@ -95,7 +116,10 @@ export function WelcomeDesktop() {
           </View>
 
           <View className="flex-row gap-3">
-            <Button className="flex-1" onPress={() => router.push('/(auth)/create-account')}>
+            <Button
+              className="flex-1"
+              onPress={() => router.push('/(auth)/create-account')}
+            >
               <Button.Label className="text-reverse font-sans-bold text-base">
                 {t('onboarding.create_account')}
               </Button.Label>

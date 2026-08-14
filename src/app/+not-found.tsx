@@ -8,10 +8,9 @@ import {
   View,
 } from "react-native";
 
+import notFoundIllustration from "@/assets/images/not_found.png";
 import { Header, PageWrapper, WebNav } from "@/src/components/layout";
 import { Button, Text } from "@/src/components/ui";
-
-import notFoundIllustration from "@/assets/images/not_found.png";
 
 export default function NotFoundScreen() {
   const { t } = useTranslation();

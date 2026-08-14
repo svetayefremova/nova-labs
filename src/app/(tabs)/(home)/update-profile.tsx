@@ -11,6 +11,39 @@ import { Button, Text, TextInput } from '@/src/components/ui';
 import { DESKTOP, TABLET } from '@/src/constants/layout';
 import { useUserProfile } from '@/src/hooks/use-user-profile';
 
+function Grid({ cols, children }: { cols: number; children: React.ReactNode }) {
+  return cols > 1 ? (
+    <View className="flex-row flex-wrap gap-3">{children}</View>
+  ) : (
+    <View className="gap-3">{children}</View>
+  );
+}
+
+function Field({
+  style,
+  label,
+  value,
+  onChange,
+  placeholder,
+}: {
+  style?: object;
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+}) {
+  return (
+    <View style={style}>
+      <TextInput
+        label={label}
+        value={value}
+        onChangeText={onChange}
+        placeholder={placeholder}
+      />
+    </View>
+  );
+}
+
 export default function UpdateProfileScreen() {
   const router = useRouter();
   const { t } = useTranslation();
@@ -37,29 +70,6 @@ export default function UpdateProfileScreen() {
         ? ({ width: 'calc(50% - 6px)' } as object)
         : undefined;
 
-  const Grid = ({ children }: { children: React.ReactNode }) =>
-    cols > 1 ? (
-      <View className="flex-row flex-wrap gap-3">{children}</View>
-    ) : (
-      <View className="gap-3">{children}</View>
-    );
-
-  const Field = ({
-    label,
-    value,
-    onChange,
-    placeholder,
-  }: {
-    label: string;
-    value: string;
-    onChange: (v: string) => void;
-    placeholder?: string;
-  }) => (
-    <View style={fieldStyle}>
-      <TextInput label={label} value={value} onChangeText={onChange} placeholder={placeholder} />
-    </View>
-  );
-
   return (
     <>
       <Stack.Screen options={{ header: () => <Header onBack={() => router.back()} /> }} />
@@ -80,29 +90,34 @@ export default function UpdateProfileScreen() {
               <Text variant="subtitle" color="muted">
                 {t('profile.section_personal')}
               </Text>
-              <Grid>
+              <Grid cols={cols}>
                 <Field
+                  style={fieldStyle}
                   label={t('profile.first_name')}
                   value={formik.values.firstName}
                   onChange={formik.handleChange('firstName')}
                 />
                 <Field
+                  style={fieldStyle}
                   label={t('profile.last_name')}
                   value={formik.values.lastName}
                   onChange={formik.handleChange('lastName')}
                 />
                 <Field
+                  style={fieldStyle}
                   label={t('profile.dob')}
                   value={formik.values.dob}
                   onChange={formik.handleChange('dob')}
                   placeholder="MM/DD/YYYY"
                 />
                 <Field
+                  style={fieldStyle}
                   label={t('profile.phone')}
                   value={formik.values.phone}
                   onChange={formik.handleChange('phone')}
                 />
                 <Field
+                  style={fieldStyle}
                   label={t('profile.email')}
                   value={formik.values.email}
                   onChange={formik.handleChange('email')}
@@ -112,33 +127,39 @@ export default function UpdateProfileScreen() {
               <Text variant="subtitle" color="muted" className="mt-2">
                 {t('profile.section_contact')}
               </Text>
-              <Grid>
+              <Grid cols={cols}>
                 <Field
+                  style={fieldStyle}
                   label={t('profile.country')}
                   value={formik.values.country}
                   onChange={formik.handleChange('country')}
                 />
                 <Field
+                  style={fieldStyle}
                   label={t('profile.address_line1')}
                   value={formik.values.addressLine1}
                   onChange={formik.handleChange('addressLine1')}
                 />
                 <Field
+                  style={fieldStyle}
                   label={t('profile.address_line2')}
                   value={formik.values.addressLine2}
                   onChange={formik.handleChange('addressLine2')}
                 />
                 <Field
+                  style={fieldStyle}
                   label={t('profile.city')}
                   value={formik.values.city}
                   onChange={formik.handleChange('city')}
                 />
                 <Field
+                  style={fieldStyle}
                   label={t('profile.state')}
                   value={formik.values.state}
                   onChange={formik.handleChange('state')}
                 />
                 <Field
+                  style={fieldStyle}
                   label={t('profile.postal_code')}
                   value={formik.values.postalCode}
                   onChange={formik.handleChange('postalCode')}

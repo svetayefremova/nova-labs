@@ -21,7 +21,14 @@ export type BiomarkerInfo = {
   formatY: (v: number) => string;
 };
 
-export const TREND_MONTHS = ['Apr 24', 'Aug 24', 'Dec 24', 'Apr 25', 'Aug 25', 'Apr 26'];
+export const TREND_MONTHS = [
+  'Apr 24',
+  'Aug 24',
+  'Dec 24',
+  'Apr 25',
+  'Aug 25',
+  'Apr 26',
+];
 
 type CategoryBiomarkers = Record<BiomarkerType, BiomarkerInfo>;
 
@@ -43,10 +50,25 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       formatY: (v) => `${v > 0 ? '+' : ''}${v}`,
       regionTitle: 'Regional volume Δ',
       regions: [
-        { name: 'Substantia nigra', label: '−6.2%', pct: 78, severity: 'critical' },
+        {
+          name: 'Substantia nigra',
+          label: '−6.2%',
+          pct: 78,
+          severity: 'critical',
+        },
         { name: 'Putamen', label: '−2.1%', pct: 42, severity: 'benign' },
-        { name: 'Caudate nucleus', label: '+0.4%', pct: 18, severity: 'normal' },
-        { name: 'Globus pallidus', label: '+0.1%', pct: 12, severity: 'normal' },
+        {
+          name: 'Caudate nucleus',
+          label: '+0.4%',
+          pct: 18,
+          severity: 'normal',
+        },
+        {
+          name: 'Globus pallidus',
+          label: '+0.1%',
+          pct: 12,
+          severity: 'normal',
+        },
       ],
     },
     iron: {
@@ -65,10 +87,25 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       formatY: (v) => `${Math.round(v)}`,
       regionTitle: 'Regional iron concentration',
       regions: [
-        { name: 'Substantia nigra', label: '112 µg/g', pct: 85, severity: 'critical' },
+        {
+          name: 'Substantia nigra',
+          label: '112 µg/g',
+          pct: 85,
+          severity: 'critical',
+        },
         { name: 'Putamen', label: '94 µg/g', pct: 65, severity: 'benign' },
-        { name: 'Caudate nucleus', label: '65 µg/g', pct: 40, severity: 'normal' },
-        { name: 'Globus pallidus', label: '58 µg/g', pct: 33, severity: 'normal' },
+        {
+          name: 'Caudate nucleus',
+          label: '65 µg/g',
+          pct: 40,
+          severity: 'normal',
+        },
+        {
+          name: 'Globus pallidus',
+          label: '58 µg/g',
+          pct: 33,
+          severity: 'normal',
+        },
       ],
     },
     flow: {
@@ -87,10 +124,25 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       formatY: (v) => `${Math.round(v)}`,
       regionTitle: 'Regional CBF',
       regions: [
-        { name: 'Substantia nigra', label: '36 mL', pct: 72, severity: 'critical' },
+        {
+          name: 'Substantia nigra',
+          label: '36 mL',
+          pct: 72,
+          severity: 'critical',
+        },
         { name: 'Putamen', label: '44 mL', pct: 48, severity: 'benign' },
-        { name: 'Caudate nucleus', label: '58 mL', pct: 26, severity: 'normal' },
-        { name: 'Globus pallidus', label: '61 mL', pct: 22, severity: 'normal' },
+        {
+          name: 'Caudate nucleus',
+          label: '58 mL',
+          pct: 26,
+          severity: 'normal',
+        },
+        {
+          name: 'Globus pallidus',
+          label: '61 mL',
+          pct: 22,
+          severity: 'normal',
+        },
       ],
     },
     mrs: {
@@ -109,7 +161,12 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       formatY: (v) => v.toFixed(1),
       regionTitle: 'Regional NAA/Cr',
       regions: [
-        { name: 'Substantia nigra', label: '1.32', pct: 68, severity: 'critical' },
+        {
+          name: 'Substantia nigra',
+          label: '1.32',
+          pct: 68,
+          severity: 'critical',
+        },
         { name: 'Putamen', label: '1.44', pct: 44, severity: 'benign' },
         { name: 'Caudate nucleus', label: '1.61', pct: 25, severity: 'normal' },
         { name: 'Globus pallidus', label: '1.68', pct: 20, severity: 'normal' },
@@ -134,9 +191,19 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       regionTitle: 'Regional volume Δ',
       regions: [
         { name: 'Hippocampus', label: '−5.8%', pct: 73, severity: 'critical' },
-        { name: 'Entorhinal cortex', label: '−1.4%', pct: 38, severity: 'benign' },
+        {
+          name: 'Entorhinal cortex',
+          label: '−1.4%',
+          pct: 38,
+          severity: 'benign',
+        },
         { name: 'Parietal lobe', label: '−1.2%', pct: 32, severity: 'benign' },
-        { name: 'Post. cingulate', label: '+0.3%', pct: 14, severity: 'normal' },
+        {
+          name: 'Post. cingulate',
+          label: '+0.3%',
+          pct: 14,
+          severity: 'normal',
+        },
       ],
     },
     iron: {
@@ -156,9 +223,24 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       regionTitle: 'Regional iron concentration',
       regions: [
         { name: 'Hippocampus', label: '78 µg/g', pct: 53, severity: 'benign' },
-        { name: 'Entorhinal cortex', label: '68 µg/g', pct: 43, severity: 'normal' },
-        { name: 'Parietal lobe', label: '71 µg/g', pct: 46, severity: 'normal' },
-        { name: 'Post. cingulate', label: '62 µg/g', pct: 37, severity: 'normal' },
+        {
+          name: 'Entorhinal cortex',
+          label: '68 µg/g',
+          pct: 43,
+          severity: 'normal',
+        },
+        {
+          name: 'Parietal lobe',
+          label: '71 µg/g',
+          pct: 46,
+          severity: 'normal',
+        },
+        {
+          name: 'Post. cingulate',
+          label: '62 µg/g',
+          pct: 37,
+          severity: 'normal',
+        },
       ],
     },
     flow: {
@@ -178,9 +260,19 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       regionTitle: 'Regional CBF',
       regions: [
         { name: 'Hippocampus', label: '38 mL', pct: 76, severity: 'critical' },
-        { name: 'Entorhinal cortex', label: '45 mL', pct: 50, severity: 'benign' },
+        {
+          name: 'Entorhinal cortex',
+          label: '45 mL',
+          pct: 50,
+          severity: 'benign',
+        },
         { name: 'Parietal lobe', label: '47 mL', pct: 46, severity: 'benign' },
-        { name: 'Post. cingulate', label: '55 mL', pct: 30, severity: 'normal' },
+        {
+          name: 'Post. cingulate',
+          label: '55 mL',
+          pct: 30,
+          severity: 'normal',
+        },
       ],
     },
     mrs: {
@@ -200,7 +292,12 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       regionTitle: 'Regional NAA/Cr',
       regions: [
         { name: 'Hippocampus', label: '1.34', pct: 65, severity: 'critical' },
-        { name: 'Entorhinal cortex', label: '1.46', pct: 43, severity: 'benign' },
+        {
+          name: 'Entorhinal cortex',
+          label: '1.46',
+          pct: 43,
+          severity: 'benign',
+        },
         { name: 'Parietal lobe', label: '1.51', pct: 36, severity: 'benign' },
         { name: 'Post. cingulate', label: '1.72', pct: 18, severity: 'normal' },
       ],
@@ -223,9 +320,19 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       formatY: (v) => `${v > 0 ? '+' : ''}${v}`,
       regionTitle: 'Regional volume Δ',
       regions: [
-        { name: 'Sup. temporal gyrus', label: '−4.8%', pct: 60, severity: 'critical' },
+        {
+          name: 'Sup. temporal gyrus',
+          label: '−4.8%',
+          pct: 60,
+          severity: 'critical',
+        },
         { name: 'Amygdala', label: '−1.6%', pct: 34, severity: 'benign' },
-        { name: 'Parahippocampal gyrus', label: '+0.2%', pct: 16, severity: 'normal' },
+        {
+          name: 'Parahippocampal gyrus',
+          label: '+0.2%',
+          pct: 16,
+          severity: 'normal',
+        },
       ],
     },
     iron: {
@@ -244,9 +351,19 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       formatY: (v) => `${Math.round(v)}`,
       regionTitle: 'Regional iron concentration',
       regions: [
-        { name: 'Sup. temporal gyrus', label: '88 µg/g', pct: 62, severity: 'benign' },
+        {
+          name: 'Sup. temporal gyrus',
+          label: '88 µg/g',
+          pct: 62,
+          severity: 'benign',
+        },
         { name: 'Amygdala', label: '74 µg/g', pct: 49, severity: 'normal' },
-        { name: 'Parahippocampal gyrus', label: '61 µg/g', pct: 36, severity: 'normal' },
+        {
+          name: 'Parahippocampal gyrus',
+          label: '61 µg/g',
+          pct: 36,
+          severity: 'normal',
+        },
       ],
     },
     flow: {
@@ -265,9 +382,19 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       formatY: (v) => `${Math.round(v)}`,
       regionTitle: 'Regional CBF',
       regions: [
-        { name: 'Sup. temporal gyrus', label: '34 mL', pct: 80, severity: 'critical' },
+        {
+          name: 'Sup. temporal gyrus',
+          label: '34 mL',
+          pct: 80,
+          severity: 'critical',
+        },
         { name: 'Amygdala', label: '42 mL', pct: 57, severity: 'benign' },
-        { name: 'Parahippocampal gyrus', label: '56 mL', pct: 32, severity: 'normal' },
+        {
+          name: 'Parahippocampal gyrus',
+          label: '56 mL',
+          pct: 32,
+          severity: 'normal',
+        },
       ],
     },
     mrs: {
@@ -286,9 +413,19 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       formatY: (v) => v.toFixed(1),
       regionTitle: 'Regional NAA/Cr',
       regions: [
-        { name: 'Sup. temporal gyrus', label: '1.36', pct: 62, severity: 'critical' },
+        {
+          name: 'Sup. temporal gyrus',
+          label: '1.36',
+          pct: 62,
+          severity: 'critical',
+        },
         { name: 'Amygdala', label: '1.48', pct: 40, severity: 'benign' },
-        { name: 'Parahippocampal gyrus', label: '1.64', pct: 22, severity: 'normal' },
+        {
+          name: 'Parahippocampal gyrus',
+          label: '1.64',
+          pct: 22,
+          severity: 'normal',
+        },
       ],
     },
   },
@@ -309,9 +446,24 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       formatY: (v) => `${v > 0 ? '+' : ''}${v}`,
       regionTitle: 'Regional volume Δ',
       regions: [
-        { name: 'Locus coeruleus', label: '−4.9%', pct: 61, severity: 'critical' },
-        { name: 'Dorsal motor nucleus', label: '−1.8%', pct: 38, severity: 'benign' },
-        { name: 'Ant. cingulate cortex', label: '+0.2%', pct: 15, severity: 'normal' },
+        {
+          name: 'Locus coeruleus',
+          label: '−4.9%',
+          pct: 61,
+          severity: 'critical',
+        },
+        {
+          name: 'Dorsal motor nucleus',
+          label: '−1.8%',
+          pct: 38,
+          severity: 'benign',
+        },
+        {
+          name: 'Ant. cingulate cortex',
+          label: '+0.2%',
+          pct: 15,
+          severity: 'normal',
+        },
       ],
     },
     iron: {
@@ -330,9 +482,24 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       formatY: (v) => `${Math.round(v)}`,
       regionTitle: 'Regional iron concentration',
       regions: [
-        { name: 'Locus coeruleus', label: '96 µg/g', pct: 70, severity: 'benign' },
-        { name: 'Dorsal motor nucleus', label: '81 µg/g', pct: 55, severity: 'benign' },
-        { name: 'Ant. cingulate cortex', label: '63 µg/g', pct: 38, severity: 'normal' },
+        {
+          name: 'Locus coeruleus',
+          label: '96 µg/g',
+          pct: 70,
+          severity: 'benign',
+        },
+        {
+          name: 'Dorsal motor nucleus',
+          label: '81 µg/g',
+          pct: 55,
+          severity: 'benign',
+        },
+        {
+          name: 'Ant. cingulate cortex',
+          label: '63 µg/g',
+          pct: 38,
+          severity: 'normal',
+        },
       ],
     },
     flow: {
@@ -351,9 +518,24 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       formatY: (v) => `${Math.round(v)}`,
       regionTitle: 'Regional CBF',
       regions: [
-        { name: 'Locus coeruleus', label: '38 mL', pct: 76, severity: 'critical' },
-        { name: 'Dorsal motor nucleus', label: '45 mL', pct: 50, severity: 'benign' },
-        { name: 'Ant. cingulate cortex', label: '57 mL', pct: 29, severity: 'normal' },
+        {
+          name: 'Locus coeruleus',
+          label: '38 mL',
+          pct: 76,
+          severity: 'critical',
+        },
+        {
+          name: 'Dorsal motor nucleus',
+          label: '45 mL',
+          pct: 50,
+          severity: 'benign',
+        },
+        {
+          name: 'Ant. cingulate cortex',
+          label: '57 mL',
+          pct: 29,
+          severity: 'normal',
+        },
       ],
     },
     mrs: {
@@ -372,9 +554,24 @@ const LIBRARY: Record<string, CategoryBiomarkers> = {
       formatY: (v) => v.toFixed(1),
       regionTitle: 'Regional NAA/Cr',
       regions: [
-        { name: 'Locus coeruleus', label: '1.33', pct: 67, severity: 'critical' },
-        { name: 'Dorsal motor nucleus', label: '1.47', pct: 42, severity: 'benign' },
-        { name: 'Ant. cingulate cortex', label: '1.65', pct: 21, severity: 'normal' },
+        {
+          name: 'Locus coeruleus',
+          label: '1.33',
+          pct: 67,
+          severity: 'critical',
+        },
+        {
+          name: 'Dorsal motor nucleus',
+          label: '1.47',
+          pct: 42,
+          severity: 'benign',
+        },
+        {
+          name: 'Ant. cingulate cortex',
+          label: '1.65',
+          pct: 21,
+          severity: 'normal',
+        },
       ],
     },
   },
@@ -384,16 +581,25 @@ const CATEGORIES = Object.keys(LIBRARY);
 
 function categoryForSection(sectionId: string, fallbackIndex: number): string {
   const id = sectionId.toLowerCase();
-  if (/parkinson|basal|nigra|putamen|caudate|striatum/.test(id)) return 'parkinson';
+  if (/parkinson|basal|nigra|putamen|caudate|striatum/.test(id))
+    return 'parkinson';
   if (/alzheimer|hippocampus|memory|entorhinal/.test(id)) return 'alzheimer';
   if (/temporal|auditory|language|gyrus/.test(id)) return 'temporal';
   if (/lewy|coeruleus|brainstem|cingulate/.test(id)) return 'lewy';
   return CATEGORIES[fallbackIndex % CATEGORIES.length];
 }
 
-export const BIOMARKER_ORDER: BiomarkerType[] = ['volume', 'iron', 'flow', 'mrs'];
+export const BIOMARKER_ORDER: BiomarkerType[] = [
+  'volume',
+  'iron',
+  'flow',
+  'mrs',
+];
 
-export function biomarkersForSection(sectionId: string, sectionIndex: number): BiomarkerInfo[] {
+export function biomarkersForSection(
+  sectionId: string,
+  sectionIndex: number,
+): BiomarkerInfo[] {
   const category = categoryForSection(sectionId, sectionIndex);
   const cat = LIBRARY[category] ?? LIBRARY.parkinson;
   return BIOMARKER_ORDER.map((type) => cat[type]);

@@ -1,7 +1,7 @@
-import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { BlurView } from 'expo-blur';
 import { router } from 'expo-router';
-import { useEffect, useRef } from 'react';
+import type { BottomTabBarProps } from 'expo-router/build/react-navigation/bottom-tabs';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Animated, Platform, Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -9,10 +9,17 @@ import { useCSSVariable } from 'uniwind';
 
 import { Icon, type IconName } from '@/src/components/ui';
 
-const TAB_CONFIG: Record<string, { labelKey: string; icon: IconName; href: string }> = {
+const TAB_CONFIG: Record<
+  string,
+  { labelKey: string; icon: IconName; href: string }
+> = {
   '(home)': { labelKey: 'home', icon: 'home', href: '/(tabs)/(home)' },
   '(images)': { labelKey: 'images', icon: 'images', href: '/(tabs)/(images)' },
-  '(documents)': { labelKey: 'documents', icon: 'documents', href: '/(tabs)/(documents)' },
+  '(documents)': {
+    labelKey: 'documents',
+    icon: 'documents',
+    href: '/(tabs)/(documents)',
+  },
 };
 
 const BUTTON_SIZE = 52;
@@ -23,12 +30,14 @@ export function TabBar({ state, navigation }: BottomTabBarProps) {
   const textColor = String(useCSSVariable('--color-text'));
   const activeColor = String(useCSSVariable('--color-primary-foreground'));
 
-  const slideAnim = useRef(new Animated.Value(state.index * BUTTON_SIZE)).current;
+  const [slideAnim] = useState(
+    () => new Animated.Value(state.index * BUTTON_SIZE),
+  );
 
   useEffect(() => {
     Animated.spring(slideAnim, {
       toValue: state.index * BUTTON_SIZE,
-      useNativeDriver: true,
+      useNativeDriver: Platform.OS !== 'web',
       damping: 20,
       stiffness: 200,
       mass: 0.8,
@@ -37,18 +46,30 @@ export function TabBar({ state, navigation }: BottomTabBarProps) {
 
   return (
     <View
-      pointerEvents="box-none"
       className="absolute left-0 right-0 z-40 items-center"
-      style={{ bottom: Math.max(insets.bottom + 8, 24) }}
+      style={{
+        bottom: Math.max(insets.bottom + 8, 24),
+        pointerEvents: 'box-none',
+      }}
     >
-      <View className="w-42 h-[60px] rounded-[28px]" accessibilityRole="tablist">
+      <View
+        className="w-42 h-[60px] rounded-[28px]"
+        accessibilityRole="tablist"
+      >
         <View className="flex-1 rounded-[28px] overflow-hidden">
           <BlurView
             intensity={34}
             tint="dark"
             style={[
-              { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
-              Platform.OS === 'android' && { backgroundColor: 'rgba(0,0,0,0.5)' },
+              {
+                flex: 1,
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+              },
+              Platform.OS === 'android' && {
+                backgroundColor: 'rgba(0,0,0,0.5)',
+              },
               Platform.OS === 'web' && { backgroundColor: 'rgba(0,0,0,0.34)' },
             ]}
           >
@@ -95,7 +116,11 @@ export function TabBar({ state, navigation }: BottomTabBarProps) {
                     accessibilityLabel={tab ? t(tab.labelKey) : undefined}
                   >
                     {tab && (
-                      <Icon name={tab.icon} size={24} color={focused ? textColor : 'white'} />
+                      <Icon
+                        name={tab.icon}
+                        size={24}
+                        color={focused ? textColor : 'white'}
+                      />
                     )}
                   </Pressable>
                 );

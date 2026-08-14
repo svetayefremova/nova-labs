@@ -108,8 +108,12 @@ export function Icon({ name, size = 24, color, accessibilityLabel }: Props) {
           accessible: !decorative,
           accessibilityRole: decorative ? undefined : ('image' as const),
           accessibilityLabel,
-          importantForAccessibility: decorative ? ('no' as const) : ('yes' as const),
+          importantForAccessibility: decorative
+            ? ('no' as const)
+            : ('yes' as const),
         };
 
-  return <Svg width={size} height={size} color={color as string} {...a11yProps} />;
+  return (
+    <Svg width={size} height={size} color={color as string} {...a11yProps} />
+  );
 }

@@ -16,7 +16,7 @@
     "submit:ios:prod": "eas submit --platform ios",
     "submit:android:prod": "eas submit --platform android",
     "check:code": "yarn lint; yarn check:types; yarn check:circular",
-    "check:circular": "madge --circular --extensions ts,tsx,js,jsx --ts-config tsconfig.json app src",
+    "check:circular": "madge --circular --extensions ts,tsx,js,jsx --ts-config tsconfig.json src",
     "check:types": "tsc --noEmit",
     "lint": "expo lint --fix"
   },
@@ -72,11 +72,13 @@
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
     "@types/react": "~19.2.2",
+    "eslint": "^9.39.5",
     "eslint-config-expo": "^57.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.6",
     "eslint-plugin-simple-import-sort": "^14.0.0",
+    "madge": "^8.0.0",
     "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "react-native-svg-transformer": "^1.5.3",

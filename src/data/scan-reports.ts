@@ -26,7 +26,8 @@ export const mockScanReports: ScanReport[] = [
         counts: { critical: 1, benign: 2, normal: 6 },
         oncoRads: 3,
         oncoRadsHistory: [2, 2, 2, 3, 3],
-        recommendation: 'Indeterminate findings. Short-interval imaging (6 months) recommended.',
+        recommendation:
+          'Indeterminate findings. Short-interval imaging (6 months) recommended.',
       },
       {
         id: 'lungs',
@@ -35,7 +36,8 @@ export const mockScanReports: ScanReport[] = [
         counts: { critical: 0, benign: 3, normal: 9 },
         oncoRads: 2,
         oncoRadsHistory: [1, 1, 1, 2, 2],
-        recommendation: 'Probably benign findings. Routine follow-up in 12 months.',
+        recommendation:
+          'Probably benign findings. Routine follow-up in 12 months.',
       },
       {
         id: 'liver',
@@ -64,7 +66,8 @@ export const mockScanReports: ScanReport[] = [
         counts: { critical: 1, benign: 3, normal: 8 },
         oncoRads: 3,
         oncoRadsHistory: [1, 2, 2, 3, 3],
-        recommendation: 'Indeterminate findings. Short-interval imaging (6 months) recommended.',
+        recommendation:
+          'Indeterminate findings. Short-interval imaging (6 months) recommended.',
       },
       {
         id: 'abdomen',
@@ -73,7 +76,8 @@ export const mockScanReports: ScanReport[] = [
         counts: { critical: 0, benign: 2, normal: 6 },
         oncoRads: 1,
         oncoRadsHistory: [1, 1, 1, 1, 1],
-        recommendation: 'No clinically significant findings. Routine follow-up in 24 months.',
+        recommendation:
+          'No clinically significant findings. Routine follow-up in 24 months.',
       },
     ],
   },

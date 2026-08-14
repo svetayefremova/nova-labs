@@ -46,7 +46,10 @@ export function AuthShell({ scanLabel, showBack = true, children }: Props) {
             }
           >
             <View className="gap-4">
-              <Text variant="display" className="text-reverse text-[42px] leading-[48px]">
+              <Text
+                variant="display"
+                className="text-reverse text-[42px] leading-[48px]"
+              >
                 {t('welcome.headline')}
               </Text>
               <Text variant="body" className="text-reverse-muted leading-6">
@@ -55,10 +58,17 @@ export function AuthShell({ scanLabel, showBack = true, children }: Props) {
             </View>
           </GradientColumn>
 
-          <View className="bg-surface items-center justify-center" style={{ width: '50%' }}>
+          <View
+            className="bg-surface items-center justify-center"
+            style={{ width: '50%' }}
+          >
             <View
               className="py-12"
-              style={{ width: '100%', maxWidth: CONTENT_MAX_WIDTH, paddingHorizontal: 40 }}
+              style={{
+                width: '100%',
+                maxWidth: CONTENT_MAX_WIDTH,
+                paddingHorizontal: 40,
+              }}
             >
               {showBack && (
                 <Button
@@ -98,10 +108,16 @@ export function AuthShell({ scanLabel, showBack = true, children }: Props) {
                       {t('app_name', 'Nova')}
                     </Text>
                   </View>
-                  <Text variant="display" className="text-reverse text-[28px] leading-[34px]">
+                  <Text
+                    variant="display"
+                    className="text-reverse text-[28px] leading-[34px]"
+                  >
                     {t('welcome.headline')}
                   </Text>
-                  <Text variant="body" className="text-reverse-muted text-[13px] leading-5">
+                  <Text
+                    variant="body"
+                    className="text-reverse-muted text-[13px] leading-5"
+                  >
                     {t('welcome.subtitle')}
                   </Text>
                 </View>

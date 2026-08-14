@@ -2,11 +2,20 @@ import { useRouter } from 'expo-router';
 import { InputOTP, REGEXP_ONLY_DIGITS } from 'heroui-native';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { View } from 'react-native';
+import { Platform, View } from 'react-native';
 import { useCSSVariable } from 'uniwind';
 
 import { AuthShell } from '@/src/components/layout';
 import { Button, Icon, Text } from '@/src/components/ui';
+
+function OtpSlot({ index }: { index: number }) {
+  return (
+    <InputOTP.Slot
+      index={index}
+      className="border rounded-2xl border-neutral-gray shadow-none"
+    />
+  );
+}
 
 export default function ConfirmEmailScreen() {
   const { t } = useTranslation();
@@ -23,7 +32,11 @@ export default function ConfirmEmailScreen() {
       <Text variant="display" className="text-[38px] leading-[44px] mt-2">
         {t('confirm_email.title')}
       </Text>
-      <Text variant="body" color="muted" className="font-sans-medium leading-6 mt-2">
+      <Text
+        variant="body"
+        color="muted"
+        className="font-sans-medium leading-6 mt-2"
+      >
         {t('confirm_email.subtitle')}
       </Text>
 
@@ -34,17 +47,18 @@ export default function ConfirmEmailScreen() {
           value={code}
           onChange={setCode}
           onComplete={setCode}
+          animation={Platform.OS === 'web' ? 'disable-all' : undefined}
         >
           <InputOTP.Group>
-            <InputOTP.Slot index={0} className="border-neutral-gray shadow-none" />
-            <InputOTP.Slot index={1} className="border-neutral-gray shadow-none" />
-            <InputOTP.Slot index={2} className="border-neutral-gray shadow-none" />
+            <OtpSlot index={0} />
+            <OtpSlot index={1} />
+            <OtpSlot index={2} />
           </InputOTP.Group>
           <InputOTP.Separator />
           <InputOTP.Group>
-            <InputOTP.Slot index={3} className="border-neutral-gray shadow-none" />
-            <InputOTP.Slot index={4} className="border-neutral-gray shadow-none" />
-            <InputOTP.Slot index={5} className="border-neutral-gray shadow-none" />
+            <OtpSlot index={3} />
+            <OtpSlot index={4} />
+            <OtpSlot index={5} />
           </InputOTP.Group>
         </InputOTP>
       </View>

@@ -34,9 +34,12 @@ export function IconButton({
       accessibilityRole={onPress ? 'button' : undefined}
       accessibilityLabel={accessibilityLabel}
       className={`${sizeClass} rounded-full bg-white items-center justify-center${borderClass} ${className ?? ''}`}
-      style={({ pressed }) => [pressed && { opacity: 0.7, transform: [{ scale: 0.95 }] }]}
+      style={({ pressed }) => [
+        ,
+        pressed && { opacity: 0.7, transform: [{ scale: 0.95 }] },
+      ]}
     >
-      <View pointerEvents="none">
+      <View style={{ pointerEvents: 'none' }}>
         <Icon name={name} size={iconSize} color={color} />
       </View>
     </Pressable>

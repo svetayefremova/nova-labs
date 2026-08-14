@@ -10,7 +10,10 @@ type Props = {
 
 export function PageWrapper({ children, className, style }: Props) {
   return (
-    <View className={cn('w-full max-w-[1180px] self-center', className)} style={style}>
+    <View
+      className={cn('w-full max-w-[1180px] self-center', className)}
+      style={style}
+    >
       {children}
     </View>
   );

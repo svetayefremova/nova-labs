@@ -9,7 +9,10 @@ export function ScreenContent({ style, extraTopPadding = 0, ...props }: Props) {
 
   return (
     <View
-      style={[{ flex: 1, paddingTop: insets.top + webExtra + extraTopPadding }, style]}
+      style={[
+        { flex: 1, paddingTop: insets.top + webExtra + extraTopPadding },
+        style,
+      ]}
       {...props}
     />
   );

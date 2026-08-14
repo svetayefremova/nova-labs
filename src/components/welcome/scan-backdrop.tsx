@@ -14,7 +14,9 @@ const vTicks = Array.from({ length: 21 }, (_, k) => {
 const hTicks = Array.from({ length: 16 }, (_, k) => {
   const x = 64 + k * 18.3;
   const long = k % 5 === 0;
-  return <Line key={`h${k}`} x1={x} y1={556} x2={x} y2={556 - (long ? 15 : 8)} />;
+  return (
+    <Line key={`h${k}`} x1={x} y1={556} x2={x} y2={556 - (long ? 15 : 8)} />
+  );
 });
 
 interface ScanBackdropProps {
@@ -25,7 +27,13 @@ export function ScanBackdrop({ fullHeight = false }: ScanBackdropProps) {
   const yellow = String(useCSSVariable('--color-accent-yellow'));
 
   return (
-    <View style={[StyleSheet.absoluteFill, !fullHeight && { height: '60%' }]} pointerEvents="none">
+    <View
+      style={[
+        StyleSheet.absoluteFill,
+        !fullHeight && { height: '60%' },
+        { pointerEvents: 'none' },
+      ]}
+    >
       <Svg
         width="100%"
         height="100%"
@@ -40,7 +48,12 @@ export function ScanBackdrop({ fullHeight = false }: ScanBackdropProps) {
           {hTicks}
         </G>
 
-        <G stroke="rgba(255,255,255,0.13)" strokeWidth={1.2} strokeDasharray="3 7" fill="none">
+        <G
+          stroke="rgba(255,255,255,0.13)"
+          strokeWidth={1.2}
+          strokeDasharray="3 7"
+          fill="none"
+        >
           <Circle cx={356} cy={118} r={44} />
           <Circle cx={356} cy={118} r={78} />
           <Circle cx={356} cy={118} r={112} />
@@ -48,13 +61,23 @@ export function ScanBackdrop({ fullHeight = false }: ScanBackdropProps) {
           <Circle cx={40} cy={512} r={62} />
         </G>
 
-        <G stroke="rgba(255,255,255,0.20)" strokeWidth={1.3} strokeLinecap="round" fill="none">
+        <G
+          stroke="rgba(255,255,255,0.20)"
+          strokeWidth={1.3}
+          strokeLinecap="round"
+          fill="none"
+        >
           <Path d="M318 196h22M329 185v22" />
           <Path d="M58 150h18M67 141v18" />
           <Path d="M300 470h16M308 462v16" />
         </G>
 
-        <G fill="rgba(255,255,255,0.34)" fontFamily={FONT} fontSize={13} letterSpacing={1}>
+        <G
+          fill="rgba(255,255,255,0.34)"
+          fontFamily={FONT}
+          fontSize={13}
+          letterSpacing={1}
+        >
           <SvgText x={195} y={86} textAnchor="middle">
             A
           </SvgText>
@@ -69,7 +92,12 @@ export function ScanBackdrop({ fullHeight = false }: ScanBackdropProps) {
           </SvgText>
         </G>
 
-        <G fill="rgba(255,255,255,0.30)" fontFamily={FONT} fontSize={10.5} letterSpacing={1.2}>
+        <G
+          fill="rgba(255,255,255,0.30)"
+          fontFamily={FONT}
+          fontSize={10.5}
+          letterSpacing={1.2}
+        >
           <SvgText x={44} y={98}>
             SE 04 · IM 18
           </SvgText>
@@ -79,7 +107,13 @@ export function ScanBackdrop({ fullHeight = false }: ScanBackdropProps) {
         </G>
 
         <G stroke={yellow} fill="none" opacity={0.55}>
-          <Circle cx={300} cy={362} r={13} strokeWidth={1.4} strokeDasharray="2.5 4" />
+          <Circle
+            cx={300}
+            cy={362}
+            r={13}
+            strokeWidth={1.4}
+            strokeDasharray="2.5 4"
+          />
           <Path
             d="M300 344v-12M300 380v12M282 362h-12M318 362h12"
             strokeWidth={1.3}

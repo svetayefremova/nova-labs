@@ -9,7 +9,10 @@ interface GradientShellProps {
   fullHeight?: boolean;
 }
 
-export function GradientShell({ children, fullHeight = false }: GradientShellProps) {
+export function GradientShell({
+  children,
+  fullHeight = false,
+}: GradientShellProps) {
   const gradStart = String(useCSSVariable('--color-onboarding-gradient-start'));
   const gradMid = String(useCSSVariable('--color-primary'));
   const gradEnd = String(useCSSVariable('--color-onboarding-gradient-end'));

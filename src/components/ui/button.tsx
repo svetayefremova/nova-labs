@@ -1,5 +1,5 @@
 import type { ButtonRootProps } from 'heroui-native';
-import { cn, Button as HeroButton, Spinner } from 'heroui-native';
+import { Button as HeroButton, cn, Spinner } from 'heroui-native';
 import { createContext, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { tv, type VariantProps } from 'tailwind-variants';
@@ -7,7 +7,7 @@ import { useCSSVariable } from 'uniwind';
 
 const buttonStyles = tv({
   slots: {
-    root: 'rounded-full px-8',
+    root: 'rounded-full px-8 gap-2',
     label: 'font-sans-semibold text-center flex-shrink',
     spinnerColorVar: '',
   },

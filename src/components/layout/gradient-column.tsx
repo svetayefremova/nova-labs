@@ -14,7 +14,12 @@ type Props = {
   footer?: ReactNode;
 };
 
-export function GradientColumn({ scanLabel, scanSize = 120, children, footer }: Props) {
+export function GradientColumn({
+  scanLabel,
+  scanSize = 120,
+  children,
+  footer,
+}: Props) {
   const { t } = useTranslation();
   const yellow = String(useCSSVariable('--color-accent-yellow'));
 

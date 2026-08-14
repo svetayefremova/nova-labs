@@ -21,7 +21,14 @@ type Props = {
   rightSlot?: ReactNode;
 };
 
-export function Header({ title, subtitle, onBack, className, onPrimary, rightSlot }: Props) {
+export function Header({
+  title,
+  subtitle,
+  onBack,
+  className,
+  onPrimary,
+  rightSlot,
+}: Props) {
   const router = useRouter();
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
@@ -56,7 +63,10 @@ export function Header({ title, subtitle, onBack, className, onPrimary, rightSlo
   }
 
   return (
-    <View className={cn('bg-background pb-2', className)} style={{ paddingTop: insets.top + 16 }}>
+    <View
+      className={cn('bg-background pb-2', className)}
+      style={{ paddingTop: insets.top + 16 }}
+    >
       <PageWrapper className="px-4">
         <View className="flex-row items-center justify-between">
           {onBack ? (
