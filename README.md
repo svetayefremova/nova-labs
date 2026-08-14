@@ -15,6 +15,8 @@ Nova is a whole-body imaging companion app. It turns dense scan reports into som
 
 ## Demo
 
+![Nova preview](assets/demo/nova-preview-strip.png)
+
 - [Watch the iOS demo](assets/demo/demo-ios.mp4)
 - [Watch the web demo](assets/demo/demo-web.mp4)
 
